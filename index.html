@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GradTrack - CDTI MyGradPath</title>
   
-  <!-- Tailwind CSS CDN -->
+  <!-- Tailwind CSS CDN with Class-based Dark Mode configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
   
   <!-- React and ReactDOM CDNs (Production Version) -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
@@ -693,7 +698,7 @@
           )}
 
           {/* --- HYBRID CONTAINER: FULLSCREEN ON MOBILE, APP MOCKUP ON DESKTOP --- */}
-          <div className="w-full max-w-md h-screen sm:h-[880px] sm:rounded-[36px] sm:shadow-2xl bg-[var(--bg)] text-[var(--text)] flex flex-col overflow-hidden relative border-0 sm:border-8 sm:border-slate-800/80">
+          <div className={`w-full max-w-md h-screen sm:h-[880px] sm:rounded-[36px] sm:shadow-2xl bg-[var(--bg)] text-[var(--text)] flex flex-col overflow-hidden relative border-0 sm:border-8 sm:border-slate-800/80 ${isDarkMode ? 'dark' : ''}`}>
             
             {/* Scrollable Main Screen Container */}
             <div className="flex-1 overflow-y-auto no-scrollbar pb-24 p-4 space-y-4 font-sans">
@@ -912,7 +917,6 @@
                 </div>
               )}
 
-              {}
               {activeTab === 'courses' && (
                 <div className="space-y-4 animate-fade-in">
                   
@@ -968,7 +972,7 @@
                             placeholder="เช่น 321-3301"
                             value={inputCode}
                             onChange={e => setInputCode(e.target.value)}
-                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs"
+                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
                           />
                         </div>
                         <div>
@@ -979,7 +983,7 @@
                             placeholder="เช่น ออกแบบบริการ"
                             value={inputName}
                             onChange={e => setInputName(e.target.value)}
-                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs"
+                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-2">
@@ -988,7 +992,7 @@
                             <select
                               value={inputCredits}
                               onChange={e => setInputCredits(Number(e.target.value))}
-                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs"
+                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
                             >
                               {[0, 1, 2, 3, 4, 5, 6].map(num => <option key={num} value={num}>{num} นก.</option>)}
                             </select>
@@ -998,7 +1002,7 @@
                             <select
                               value={inputGrade}
                               onChange={e => setInputGrade(e.target.value)}
-                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs"
+                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
                             >
                               <option value="-">- ยังไม่เรียน</option>
                               <option value="IP">IP กำลังเรียน</option>
@@ -1021,7 +1025,7 @@
                           <select
                             value={inputCategory}
                             onChange={e => setInputCategory(e.target.value)}
-                            className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs"
+                            className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
                           >
                             <option value="ge_so">สังคมศาสตร์ (GE)</option>
                             <option value="ge_hu">มนุษยศาสตร์ (GE)</option>
@@ -1088,8 +1092,8 @@
                                     {c.credits} นก.
                                   </span>
                                 </div>
-                                <p className="font-extrabold text-slate-900 dark:text-white truncate leading-tight mb-1 text-[11px]">{c.name}</p>
-                                <span className="text-[8px] text-gray-400">
+                                <p className="font-extrabold text-slate-950 dark:text-white truncate leading-tight mb-1 text-[11px]">{c.name}</p>
+                                <span className="text-[8px] text-gray-500 dark:text-gray-400">
                                   {
                                     c.category === 'ge_so' ? '1.1 สังคมศาสตร์' :
                                     c.category === 'ge_hu' ? '1.2 มนุษยศาสตร์' :
@@ -1148,7 +1152,6 @@
                 </div>
               )}
 
-              {}
               {activeTab === 'planner' && (
                 <div className="space-y-4 animate-fade-in">
                   
@@ -1255,7 +1258,6 @@
                 </div>
               )}
 
-              {}
               {activeTab === 'guide' && (
                 <div className="space-y-4 animate-fade-in text-xs leading-relaxed">
                   
@@ -1420,7 +1422,7 @@
                       value={authEmail} 
                       onChange={e => setAuthEmail(e.target.value)} 
                       placeholder="student@cdti.ac.th" 
-                      className="w-full px-2.5 py-1.5 neu-inset outline-none text-xs" 
+                      className="w-full px-2.5 py-1.5 neu-inset outline-none text-xs text-slate-900 dark:text-white" 
                     />
                   </div>
                   <div>
@@ -1428,7 +1430,7 @@
                     <input 
                       type="password" 
                       placeholder="••••••••" 
-                      className="w-full px-2.5 py-1.5 neu-inset outline-none text-xs" 
+                      className="w-full px-2.5 py-1.5 neu-inset outline-none text-xs text-slate-900 dark:text-white" 
                     />
                   </div>
                   <button 
