@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GradTrack - CDTI MyGradPath</title>
   
+  <!-- App Icons for Mobile (Add to Homescreen) -->
+  <link rel="icon" type="image/png" href="iconApp.png">
+  <link rel="shortcut icon" href="iconApp.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="iconApp.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="iconApp.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="iconApp.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="iconApp.png">
+  
+  <!-- iOS Web App Capability Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="GradTrack">
+  
   <!-- Tailwind CSS CDN with Class-based Dark Mode configuration -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -361,6 +374,48 @@
           setEditEmail(user.email);
         }
       }, [user]);
+
+      // --- APP METADATA & DYNAMIC MANIFEST SYNC ---
+      useEffect(() => {
+        const theme = THEMES[themeName][isDarkMode ? 'dark' : 'light'];
+        
+        // Construct and inject a Web App Manifest in-memory
+        const manifest = {
+          name: "GradTrack - CDTI MyGradPath",
+          short_name: "GradTrack",
+          start_url: ".",
+          display: "standalone",
+          background_color: theme.bg,
+          theme_color: theme.primary,
+          icons: [
+            {
+              src: "iconApp.png",
+              sizes: "192x192",
+              type: "image/png"
+            },
+            {
+              src: "iconApp.png",
+              sizes: "512x512",
+              type: "image/png"
+            }
+          ]
+        };
+        const stringManifest = JSON.stringify(manifest);
+        const blob = new Blob([stringManifest], {type: 'application/json'});
+        const manifestURL = URL.createObjectURL(blob);
+        
+        let link = document.querySelector('link[rel="manifest"]');
+        if (!link) {
+          link = document.createElement('link');
+          link.rel = 'manifest';
+          document.head.appendChild(link);
+        }
+        link.href = manifestURL;
+        
+        return () => {
+          URL.revokeObjectURL(manifestURL);
+        };
+      }, [themeName, isDarkMode]);
 
       useEffect(() => {
         localStorage.setItem('gradtrack_courses_v5_cdti', JSON.stringify(courses));
@@ -778,7 +833,7 @@
                       </div>
                     </div>
 
-                    {/* Honors Notification (FIXED: Standard icon layout, removed invalid classes and cleared general sub-guideline) */}
+                    {/* Honors Notification */}
                     <div className="w-full mt-3 p-3.5 rounded-lg neu-inset text-left text-xs leading-relaxed">
                       <div className="flex items-center gap-1.5 text-indigo-500 font-bold mb-1.5">
                         <Award className="h-5 w-5 shrink-0" /> 
@@ -1370,7 +1425,7 @@
 
             </div>
 
-            {/* --- IOS TAB NAVIGATION BAR (Icons properly sized using standard class) --- */}
+            {/* --- IOS TAB NAVIGATION BAR --- */}
             <nav className="absolute bottom-0 left-0 right-0 h-16 bg-[var(--bg)] border-t border-gray-200 dark:border-gray-800 flex items-center justify-around px-2 z-40 pb-2">
               <button 
                 onClick={() => setActiveTab('dashboard')}
