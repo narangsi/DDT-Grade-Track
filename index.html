@@ -27,7 +27,7 @@
   <script type="text/babel">
     const { useState, useEffect, useMemo } = React;
 
-    // --- SELF-CONTAINED ROBUST VECTOR ICONS (No external dependencies) ---
+    // --- SELF-CONTAINED ROBUST VECTOR ICONS (No external dependencies, standardized to utilize Tailwind CSS correctly) ---
     const GraduationCap = ({ className = "w-5 h-5" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
@@ -105,13 +105,6 @@
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="8" x2="12" y2="12" />
         <line x1="12" y1="16" x2="12.01" y2="16" />
-      </svg>
-    );
-
-    const TrendingUp = ({ className = "w-5 h-5" }) => (
-      <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-        <polyline points="17 6 23 6 23 12" />
       </svg>
     );
 
@@ -316,6 +309,7 @@
     };
 
     function App() {
+      // --- STATE ---
       const [courses, setCourses] = useState(() => {
         const saved = localStorage.getItem('gradtrack_courses_v3_cdti');
         return saved ? JSON.parse(saved) : CDTI_CURRICULUM_TEMPLATE;
@@ -332,7 +326,12 @@
       const [editingCourse, setEditingCourse] = useState(null);
       const [alertMessage, setAlertMessage] = useState(null);
 
+      // User Profile details
       const [user, setUser] = useState({ name: 'นักศึกษา CDTI', email: 'student@cdti.ac.th', id: 'user_cdti' });
+      const [isEditingProfile, setIsEditingProfile] = useState(false);
+      const [editName, setEditName] = useState('นักศึกษา CDTI');
+      const [editEmail, setEditEmail] = useState('student@cdti.ac.th');
+
       const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
       const [authEmail, setAuthEmail] = useState('');
       const [authPassword, setAuthPassword] = useState('');
@@ -344,6 +343,14 @@
       const [inputCategory, setInputCategory] = useState('ge_so');
       const [inputYear, setInputYear] = useState(1);
       const [inputSemester, setInputSemester] = useState('1');
+
+      // Sync Edit Input States with User model
+      useEffect(() => {
+        if (user) {
+          setEditName(user.name);
+          setEditEmail(user.email);
+        }
+      }, [user]);
 
       useEffect(() => {
         localStorage.setItem('gradtrack_courses_v3_cdti', JSON.stringify(courses));
@@ -400,6 +407,7 @@
         }
       `;
 
+      // --- CRITICAL ACADEMIC CALCULATION ENGINES ---
       const calculatedStats = useMemo(() => {
         let totalGradePoints = 0;
         let totalGpaCredits = 0;
@@ -636,6 +644,21 @@
         showAlert('ออกจากระบบคลาวด์');
       };
 
+      const handleSaveProfile = (e) => {
+        e.preventDefault();
+        if (!editName.trim() || !editEmail.trim()) {
+          showAlert('กรุณากรอกชื่อและอีเมลให้เรียบร้อย');
+          return;
+        }
+        setUser({
+          name: editName.trim(),
+          email: editEmail.trim(),
+          id: 'user_cdti'
+        });
+        setIsEditingProfile(false);
+        showAlert('อัปเดตข้อมูลโปรไฟล์ผู้ใช้งานเรียบร้อยแล้ว');
+      };
+
       const CDTI_GE_SUBCATEGORIES = [
         { key: 'ge_so', name: 'กลุ่มสังคมศึกษาศาสตร์', req: 6 },
         { key: 'ge_hu', name: 'กลุ่มวิชามนุษยศาสตร์', req: 6 },
@@ -673,7 +696,7 @@
           <div className="w-full max-w-md h-screen sm:h-[880px] sm:rounded-[36px] sm:shadow-2xl bg-[var(--bg)] text-[var(--text)] flex flex-col overflow-hidden relative border-0 sm:border-8 sm:border-slate-800/80">
             
             {/* Scrollable Main Screen Container */}
-            <div className="flex-1 overflow-y-auto no-scrollbar pb-24 p-4 space-y-4">
+            <div className="flex-1 overflow-y-auto no-scrollbar pb-24 p-4 space-y-4 font-sans">
               
               {/* 1st Card: Mini Dashboard / Brand Header */}
               <div className="neu-flat p-4 flex items-center justify-between">
@@ -889,6 +912,7 @@
                 </div>
               )}
 
+              {}
               {activeTab === 'courses' && (
                 <div className="space-y-4 animate-fade-in">
                   
@@ -1064,7 +1088,7 @@
                                     {c.credits} นก.
                                   </span>
                                 </div>
-                                <p className="font-medium text-gray-700 dark:text-gray-300 truncate leading-tight mb-1">{c.name}</p>
+                                <p className="font-extrabold text-slate-900 dark:text-white truncate leading-tight mb-1 text-[11px]">{c.name}</p>
                                 <span className="text-[8px] text-gray-400">
                                   {
                                     c.category === 'ge_so' ? '1.1 สังคมศาสตร์' :
@@ -1084,7 +1108,7 @@
                                   onChange={e => handleQuickGradeChange(c.id, e.target.value)}
                                   className={`font-bold py-1 px-1.5 rounded-md text-[10px] outline-none cursor-pointer transition-all ${
                                     c.grade === 'A' ? 'bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600' :
-                                    c.grade === '-' ? 'bg-gray-200 dark:bg-gray-800 text-gray-400' :
+                                    c.grade === '-' ? 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400' :
                                     c.grade === 'IP' ? 'bg-amber-100 dark:bg-amber-950/30 text-amber-500' :
                                     c.grade === 'F' ? 'bg-red-100 dark:bg-red-950/30 text-red-500' :
                                     'bg-indigo-100 dark:bg-indigo-950/30 text-indigo-500'
@@ -1124,6 +1148,7 @@
                 </div>
               )}
 
+              {}
               {activeTab === 'planner' && (
                 <div className="space-y-4 animate-fade-in">
                   
@@ -1230,6 +1255,7 @@
                 </div>
               )}
 
+              {}
               {activeTab === 'guide' && (
                 <div className="space-y-4 animate-fade-in text-xs leading-relaxed">
                   
@@ -1251,13 +1277,67 @@
                     </div>
                   </div>
 
-                  {/* Profile simulation */}
+                  {/* Profile Management Section (Now fully editable with custom fields) */}
                   <div className="neu-flat p-4 space-y-3">
-                    <h4 className="font-bold text-indigo-500 text-xs">ข้อมูลผู้ใช้งาน (จำลองคลาวด์)</h4>
-                    <div className="p-3 rounded-lg neu-inset text-[10px] space-y-1">
-                      <p><strong>ชื่อ-นามสกุล:</strong> {user ? user.name : 'นิสิตจำลอง CDTI'}</p>
-                      <p><strong>อีเมลสถาบัน:</strong> {user ? user.email : 'student@cdti.ac.th'}</p>
-                    </div>
+                    <h4 className="font-bold text-indigo-500 text-xs">ข้อมูลผู้ใช้งาน (แก้ไขข้อมูลส่วนตัวได้จริง)</h4>
+                    
+                    {isEditingProfile ? (
+                      <form onSubmit={handleSaveProfile} className="space-y-3.5 p-3.5 rounded-lg neu-inset">
+                        <div>
+                          <label className="text-gray-500 block mb-1 font-bold text-[9px] uppercase">ชื่อ-นามสกุล</label>
+                          <input 
+                            type="text" 
+                            required 
+                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-xs border border-slate-200 dark:border-slate-700 font-medium"
+                            value={editName}
+                            onChange={e => setEditName(e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <label className="text-gray-500 block mb-1 font-bold text-[9px] uppercase">อีเมลสถาบัน</label>
+                          <input 
+                            type="email" 
+                            required 
+                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-xs border border-slate-200 dark:border-slate-700 font-medium"
+                            value={editEmail}
+                            onChange={e => setEditEmail(e.target.value)}
+                          />
+                        </div>
+                        <div className="flex gap-2 pt-1">
+                          <button 
+                            type="submit" 
+                            className="flex-1 py-1 px-2.5 bg-indigo-500 text-white rounded-md font-bold text-[10px]"
+                          >
+                            บันทึกข้อมูล
+                          </button>
+                          <button 
+                            type="button" 
+                            onClick={() => {
+                              if (user) {
+                                setEditName(user.name);
+                                setEditEmail(user.email);
+                              }
+                              setIsEditingProfile(false);
+                            }}
+                            className="py-1 px-3 bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-md text-[10px]"
+                          >
+                            ยกเลิก
+                          </button>
+                        </div>
+                      </form>
+                    ) : (
+                      <div className="p-3 rounded-lg neu-inset text-[10px] space-y-2">
+                        <p><strong>ชื่อ-นามสกุล:</strong> {user ? user.name : 'นิสิตจำลอง CDTI'}</p>
+                        <p><strong>อีเมลสถาบัน:</strong> {user ? user.email : 'student@cdti.ac.th'}</p>
+                        <button 
+                          onClick={() => setIsEditingProfile(true)}
+                          className="mt-1 py-1 px-3 text-[9px] font-bold text-indigo-500 bg-indigo-50/10 hover:bg-indigo-50/20 border border-indigo-500/10 rounded-md transition-all"
+                        >
+                          แก้ไขข้อมูลส่วนตัว
+                        </button>
+                      </div>
+                    )}
+                    
                     {user ? (
                       <button 
                         onClick={handleLogout}
@@ -1280,46 +1360,46 @@
 
             </div>
 
-            {/* --- IOS PREMIUM TAB NAVIGATION BAR (Bottom Stick) --- */}
+            {/* --- IOS TAB NAVIGATION BAR (Icons optimized to standard Tailwind w-5 h-5 sizes) --- */}
             <nav className="absolute bottom-0 left-0 right-0 h-16 bg-[var(--bg)] border-t border-gray-200 dark:border-gray-800 flex items-center justify-around px-2 z-40 pb-2">
               <button 
                 onClick={() => setActiveTab('dashboard')}
-                className={`flex flex-col items-center gap-0.5 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
                   activeTab === 'dashboard' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Award className="h-4.5 w-4.5" />
-                <span className="text-[8.5px]">ผลสัมฤทธิ์</span>
+                <Award className="w-5 h-5" />
+                <span className="text-[9px]">ผลสัมฤทธิ์</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('courses')}
-                className={`flex flex-col items-center gap-0.5 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
                   activeTab === 'courses' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <FolderOpen className="h-4.5 w-4.5" />
-                <span className="text-[8.5px]">รายวิชา</span>
+                <FolderOpen className="w-5 h-5" />
+                <span className="text-[9px]">รายวิชา</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('planner')}
-                className={`flex flex-col items-center gap-0.5 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
                   activeTab === 'planner' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Sparkles className="h-4.5 w-4.5" />
-                <span className="text-[8.5px]">วางแผน</span>
+                <Sparkles className="w-5 h-5" />
+                <span className="text-[9px]">วางแผน</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('guide')}
-                className={`flex flex-col items-center gap-0.5 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
                   activeTab === 'guide' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Sliders className="h-4.5 w-4.5" />
-                <span className="text-[8.5px]">ผู้ใช้/คู่มือ</span>
+                <Sliders className="w-5 h-5" />
+                <span className="text-[9px]">ผู้ใช้/คู่มือ</span>
               </button>
             </nav>
 
