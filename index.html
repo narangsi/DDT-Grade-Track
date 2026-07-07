@@ -32,22 +32,21 @@
   <script type="text/babel">
     const { useState, useEffect, useMemo } = React;
 
-    // --- SELF-CONTAINED ROBUST VECTOR ICONS (No external dependencies, standardized to utilize Tailwind CSS correctly) ---
-    const GraduationCap = ({ className = "w-5 h-5" }) => (
+    const GraduationCap = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
         <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
       </svg>
     );
 
-    const Award = ({ className = "w-5 h-5" }) => (
+    const Award = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="7" />
         <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
       </svg>
     );
 
-    const Trash2 = ({ className = "w-5 h-5" }) => (
+    const Trash2 = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="3 6 5 6 21 6" />
         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
@@ -56,21 +55,21 @@
       </svg>
     );
 
-    const Plus = ({ className = "w-5 h-5" }) => (
+    const Plus = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="12" y1="5" x2="12" y2="19" />
         <line x1="5" y1="12" x2="19" y2="12" />
       </svg>
     );
 
-    const Edit3 = ({ className = "w-5 h-5" }) => (
+    const Edit3 = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9" />
         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
       </svg>
     );
 
-    const Sun = ({ className = "w-5 h-5" }) => (
+    const Sun = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="5" />
         <line x1="12" y1="1" x2="12" y2="3" />
@@ -84,13 +83,13 @@
       </svg>
     );
 
-    const Moon = ({ className = "w-5 h-5" }) => (
+    const Moon = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
     );
 
-    const Info = ({ className = "w-5 h-5" }) => (
+    const Info = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="16" x2="12" y2="12" />
@@ -98,14 +97,14 @@
       </svg>
     );
 
-    const CheckCircle = ({ className = "w-5 h-5" }) => (
+    const CheckCircle = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
         <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
     );
 
-    const AlertCircle = ({ className = "w-5 h-5" }) => (
+    const AlertCircle = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="10" />
         <line x1="12" y1="8" x2="12" y2="12" />
@@ -113,26 +112,26 @@
       </svg>
     );
 
-    const FolderOpen = ({ className = "w-5 h-5" }) => (
+    const FolderOpen = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
         <polygon points="12 11 12 17 22 17 22 11 12 11" />
       </svg>
     );
 
-    const Sparkles = ({ className = "w-5 h-5" }) => (
+    const Sparkles = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
       </svg>
     );
 
-    const Check = ({ className = "w-5 h-5" }) => (
+    const Check = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="20 6 9 17 4 12" />
       </svg>
     );
 
-    const Sliders = ({ className = "w-5 h-5" }) => (
+    const Sliders = ({ className = "w-6 h-6" }) => (
       <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <line x1="4" y1="21" x2="4" y2="14" />
         <line x1="4" y1="10" x2="4" y2="3" />
@@ -255,7 +254,6 @@
       }
     };
 
-    // Total 133 credits CDTI
     const CDTI_CURRICULUM_TEMPLATE = [
       { id: 'cdti1_1', code: '321-1101', name: 'สุนทรียศาสตร์ ศิลปะและการออกแบบ', credits: 3, grade: '-', category: 'core', year: 1, semester: '1' },
       { id: 'cdti1_2', code: '321-1102', name: 'องค์ประกอบศิลป์และทฤษฎีสีเพื่อการออกแบบ', credits: 3, grade: '-', category: 'core', year: 1, semester: '1' },
@@ -264,6 +262,7 @@
       { id: 'cdti1_5', code: '920-1135', name: 'สุขภาวะกายและจิต', credits: 3, grade: '-', category: 'ge_hu', year: 1, semester: '1' },
       { id: 'cdti1_6', code: '931-1107', name: 'คณิตศาสตร์และสถิติในชีวิตประจำวัน', credits: 3, grade: '-', category: 'ge_sc_ma', year: 1, semester: '1' },
       { id: 'cdti1_7', code: '942-1101', name: 'ภาษาอังกฤษปรับพื้นฐาน 1 (ไม่นับหน่วยกิต)', credits: 0, grade: '-', category: 'ge_lang', year: 1, semester: '1' },
+      
       { id: 'cdti1_8', code: '321-2101', name: 'การเขียนโปรแกรมเบื้องต้นเพื่อการออกแบบและเทคโนโลยี', credits: 3, grade: '-', category: 'major_req', year: 1, semester: '2' },
       { id: 'cdti1_9', code: '321-2102', name: 'แนวคิดและการคิดวิเคราะห์เชิงออกแบบ', credits: 3, grade: '-', category: 'major_req', year: 1, semester: '2' },
       { id: 'cdti1_10', code: '321-2103', name: 'การออกแบบปฏิสัมพันธ์ขั้นพื้นฐาน', credits: 3, grade: '-', category: 'major_req', year: 1, semester: '2' },
@@ -272,6 +271,7 @@
       { id: 'cdti1_13', code: '920-11xx', name: 'วิชาเลือกกลุ่มมนุษยศาสตร์', credits: 2, grade: '-', category: 'ge_hu', year: 1, semester: '2' },
       { id: 'cdti1_14', code: '941-1102', name: 'ภาษาไทยเพื่อการสื่อสาร', credits: 2, grade: '-', category: 'ge_lang', year: 1, semester: '2' },
       { id: 'cdti1_15', code: '942-1102', name: 'ภาษาอังกฤษปรับพื้นฐาน 2 (ไม่นับหน่วยกิต)', credits: 0, grade: '-', category: 'ge_lang', year: 1, semester: '2' },
+      
       { id: 'cdti2_1', code: '321-1206', name: 'คอมพิวเตอร์เพื่องานออกแบบ 3 มิติ', credits: 3, grade: '-', category: 'core', year: 2, semester: '1' },
       { id: 'cdti2_2', code: '321-1207', name: 'การสร้างแบบร่างและการสร้างแบบจำลอง', credits: 3, grade: '-', category: 'core', year: 2, semester: '1' },
       { id: 'cdti2_3', code: '321-1208', name: 'การออกแบบกราฟิก', credits: 3, grade: '-', category: 'core', year: 2, semester: '1' },
@@ -279,6 +279,7 @@
       { id: 'cdti2_5', code: '932-1107', name: 'วิทยาศาสตร์เพื่อคุณภาพชีวิต', credits: 3, grade: '-', category: 'ge_sc_ma', year: 2, semester: '1' },
       { id: 'cdti2_6', code: '942-1107', name: 'ภาษาอังกฤษเพื่อการสื่อสาร', credits: 2, grade: '-', category: 'ge_lang', year: 2, semester: '1' },
       { id: 'cdti2_7', code: '943-1107', name: 'ภาษาที่สาม 1', credits: 1, grade: '-', category: 'ge_lang', year: 2, semester: '1' },
+      
       { id: 'cdti2_8', code: '321-1209', name: 'ระบบคอมพิวเตอร์พื้นฐาน', credits: 3, grade: '-', category: 'core', year: 2, semester: '2' },
       { id: 'cdti2_9', code: '321-2204', name: 'ปัจจัยและความสัมพันธ์ระหว่างมนุษย์กับการออกแบบ', credits: 3, grade: '-', category: 'major_req', year: 2, semester: '2' },
       { id: 'cdti2_10', code: '321-2205', name: 'การออกแบบเว็บไซต์เพื่ออุปกรณ์เคลื่อนที่', credits: 3, grade: '-', category: 'major_req', year: 2, semester: '2' },
@@ -286,6 +287,7 @@
       { id: 'cdti2_12', code: '910-1116', name: 'การคิดสร้างสรรค์เพื่อสังคม', credits: 3, grade: '-', category: 'ge_so', year: 2, semester: '2' },
       { id: 'cdti2_13', code: '942-1108', name: 'ภาษาอังกฤษเพื่อวิชาชีพ', credits: 2, grade: '-', category: 'ge_lang', year: 2, semester: '2' },
       { id: 'cdti2_14', code: '943-1108', name: 'ภาษาที่สาม 2', credits: 1, grade: '-', category: 'ge_lang', year: 2, semester: '2' },
+      
       { id: 'cdti3_1', code: '321-2308', name: 'การออกแบบนวัตกรรมดิจิทัลเชิงสร้างสรรค์ 1', credits: 4, grade: '-', category: 'major_req', year: 3, semester: '1' },
       { id: 'cdti3_2', code: '321-2310', name: 'การออกแบบอินโฟกราฟิก', credits: 3, grade: '-', category: 'major_req', year: 3, semester: '1' },
       { id: 'cdti3_3', code: '321-2311', name: 'สัมมนาการออกแบบและเทคโนโลยี', credits: 3, grade: '-', category: 'major_req', year: 3, semester: '1' },
@@ -293,12 +295,17 @@
       { id: 'cdti3_5', code: '920-11xx', name: 'วิชาเลือกกลุ่มมนุษยศาสตร์', credits: 1, grade: '-', category: 'ge_hu', year: 3, semester: '1' },
       { id: 'cdti3_6', code: '910-11xx', name: 'วิชาเลือกกลุ่มสังคมศาสตร์', credits: 3, grade: '-', category: 'ge_so', year: 3, semester: '1' },
       { id: 'cdti3_7', code: '942-11xx', name: 'ภาษาที่สาม 3', credits: 1, grade: '-', category: 'ge_lang', year: 3, semester: '1' },
+      
       { id: 'cdti3_8', code: '321-2309', name: 'การออกแบบนวัตกรรมดิจิทัลเชิงสร้างสรรค์ 2', credits: 4, grade: '-', category: 'major_req', year: 3, semester: '2' },
       { id: 'cdti3_9', code: '321-2312', name: 'จริยธรรมวิชาชีพและการเตรียมความพร้อมเพื่อการทำงาน', credits: 3, grade: '-', category: 'major_req', year: 3, semester: '2' },
       { id: 'cdti3_10', code: '321-33xx', name: 'วิชาชีพเลือก 2 (เช่น 321-3303 ออกแบบบริการ)', credits: 3, grade: '-', category: 'major_elec', year: 3, semester: '2' },
       { id: 'cdti3_11', code: '321-33xx', name: 'วิชาชีพเลือก 3 (เช่น 321-3307 ธุรกิจผู้ประกอบการงานออกแบบ)', credits: 3, grade: '-', category: 'major_elec', year: 3, semester: '2' },
       { id: 'cdti3_12', code: '942-11xx', name: 'วิชาเลือกภาษาอังกฤษ 1', credits: 2, grade: '-', category: 'ge_lang', year: 3, semester: '2' },
       { id: 'cdti3_13', code: 'XXX-XXXX', name: 'วิชาเลือกเสรี 1', credits: 3, grade: '-', category: 'free', year: 3, semester: '2' },
+
+      // YEAR 3 SUMMER: Fixed Internship integration as requested
+      { id: 'cdti3_intern', code: '321-3310', name: 'ฝึกปฏิบัติวิชาชีพการออกแบบและเทคโนโลยี', credits: 3, grade: '-', category: 'major_elec', year: 3, semester: 'summer' },
+
       { id: 'cdti4_1', code: '321-2413', name: 'การค้นคว้าเพื่อการออกแบบ', credits: 3, grade: '-', category: 'major_req', year: 4, semester: '1' },
       { id: 'cdti4_2', code: '321-2414', name: 'เตรียมปริญญานิพนธ์การออกแบบและเทคโนโลยี', credits: 3, grade: '-', category: 'major_req', year: 4, semester: '1' },
       { id: 'cdti4_3', code: '321-33xx', name: 'วิชาชีพเลือก 4 (เช่น 312-3302 ปัญญาประดิษฐ์)', credits: 3, grade: '-', category: 'major_elec', year: 4, semester: '1' },
@@ -314,9 +321,8 @@
     };
 
     function App() {
-      // --- STATE ---
       const [courses, setCourses] = useState(() => {
-        const saved = localStorage.getItem('gradtrack_courses_v3_cdti');
+        const saved = localStorage.getItem('gradtrack_courses_v5_cdti');
         return saved ? JSON.parse(saved) : CDTI_CURRICULUM_TEMPLATE;
       });
       
@@ -331,7 +337,7 @@
       const [editingCourse, setEditingCourse] = useState(null);
       const [alertMessage, setAlertMessage] = useState(null);
 
-      // User Profile details
+      // Student Account details state setup
       const [user, setUser] = useState({ name: 'นักศึกษา CDTI', email: 'student@cdti.ac.th', id: 'user_cdti' });
       const [isEditingProfile, setIsEditingProfile] = useState(false);
       const [editName, setEditName] = useState('นักศึกษา CDTI');
@@ -349,7 +355,6 @@
       const [inputYear, setInputYear] = useState(1);
       const [inputSemester, setInputSemester] = useState('1');
 
-      // Sync Edit Input States with User model
       useEffect(() => {
         if (user) {
           setEditName(user.name);
@@ -358,7 +363,7 @@
       }, [user]);
 
       useEffect(() => {
-        localStorage.setItem('gradtrack_courses_v3_cdti', JSON.stringify(courses));
+        localStorage.setItem('gradtrack_courses_v5_cdti', JSON.stringify(courses));
       }, [courses]);
 
       const theme = THEMES[themeName][isDarkMode ? 'dark' : 'light'];
@@ -412,7 +417,6 @@
         }
       `;
 
-      // --- CRITICAL ACADEMIC CALCULATION ENGINES ---
       const calculatedStats = useMemo(() => {
         let totalGradePoints = 0;
         let totalGpaCredits = 0;
@@ -551,7 +555,7 @@
           .map(key => {
             const semData = semestersMap[key];
             return {
-              label: `ปี ${semData.year}/${semData.sem}`,
+              label: `ปี ${semData.year}/${semData.sem === 'summer' ? 'S' : semData.sem}`,
               gpa: parseFloat((semData.points / semData.credits).toFixed(2)),
               sortVal: Number(semData.year) * 10 + (semData.sem === 'summer' ? 3 : Number(semData.sem))
             };
@@ -684,12 +688,12 @@
           {alertMessage && (
             <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-xs p-6">
               <div className="neu-flat p-6 max-w-xs w-full border border-gray-200 dark:border-gray-800 text-center animate-scale-up">
-                <AlertCircle className="mx-auto text-indigo-500 mb-3 h-10 w-10" />
+                <AlertCircle className="mx-auto text-indigo-500 mb-3 h-10 w-10 shrink-0" />
                 <p className="text-sm font-black mb-2 text-indigo-500">ผลดำเนินการ</p>
-                <p className="text-xs mb-4 text-gray-600 dark:text-gray-300">{alertMessage}</p>
+                <p className="text-sm mb-4 text-gray-600 dark:text-gray-300">{alertMessage}</p>
                 <button 
                   onClick={() => setAlertMessage(null)}
-                  className="neu-btn px-6 py-2 text-xs font-bold w-full text-indigo-500"
+                  className="neu-btn px-6 py-2.5 text-sm font-bold w-full text-indigo-500"
                 >
                   ตกลง
                 </button>
@@ -707,18 +711,18 @@
               <div className="neu-flat p-4 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <div className="p-2.5 neu-inset text-indigo-500 rounded-lg">
-                    <GraduationCap className="h-5 w-5" />
+                    <GraduationCap className="h-6 w-6 shrink-0" />
                   </div>
                   <div>
-                    <h1 className="text-sm font-black tracking-tight leading-none">GradTrack</h1>
-                    <span className="text-[9px] text-gray-400">CDTI Design & Tech (133 นก.)</span>
+                    <h1 className="text-lg font-black tracking-tight leading-none">GradTrack</h1>
+                    <span className="text-xs text-gray-400">CDTI Design & Tech (133 นก.)</span>
                   </div>
                 </div>
                 <button 
                   onClick={() => setIsDarkMode(!isDarkMode)}
-                  className="p-1.5 neu-btn text-yellow-500 rounded-md"
+                  className="p-2 neu-btn text-yellow-500 rounded-md"
                 >
-                  {isDarkMode ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+                  {isDarkMode ? <Sun className="h-5 w-5 shrink-0" /> : <Moon className="h-5 w-5 shrink-0" />}
                 </button>
               </div>
 
@@ -726,18 +730,18 @@
               <div className="neu-flat p-3.5 flex items-center justify-between gap-2.5">
                 <button
                   onClick={loadStandardTemplate}
-                  className="flex-1 py-2 px-1.5 text-[9px] font-bold text-indigo-500 neu-btn flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 px-2.5 text-xs font-bold text-indigo-500 neu-btn flex items-center justify-center gap-1.5"
                   title="รีเซ็ตวิชาตามโครงสร้างหลักสูตร CDTI และเว้นเกรดว่างเปล่าทั้งหมด"
                 >
-                  <Sparkles className="h-3.5 w-3.5 shrink-0" />
+                  <Sparkles className="h-4 w-4 shrink-0" />
                   <span>โหลดโครงสร้าง CDTI</span>
                 </button>
                 <button
                   onClick={clearAllCourses}
-                  className="flex-1 py-2 px-1.5 text-[9px] font-bold text-red-500 neu-btn flex items-center justify-center gap-1.5"
+                  className="flex-1 py-2.5 px-2.5 text-xs font-bold text-red-500 neu-btn flex items-center justify-center gap-1.5"
                   title="ล้างรายวิชาเรียนทั้งหมดในระบบเพื่อพิมพ์โครงสร้างเองตั้งแต่ต้น"
                 >
-                  <Trash2 className="h-3.5 w-3.5 shrink-0" />
+                  <Trash2 className="h-4 w-4 shrink-0" />
                   <span>ล้างโครงสร้างทั้งหมด</span>
                 </button>
               </div>
@@ -749,61 +753,59 @@
                   {/* 3rd Card: Premium GPAX Circle & Dynamic Credit Status */}
                   <div className="neu-flat p-5 flex flex-col items-center text-center relative overflow-hidden">
                     <div className="absolute -top-3 -right-3 text-gray-300 dark:text-gray-700 opacity-15">
-                      <Award className="h-20 w-20" />
+                      <Award className="h-24 w-24 shrink-0" />
                     </div>
                     
-                    <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider">ผลการเรียนเฉลี่ยสะสม (GPAX)</span>
-                    <div className="w-24 h-24 rounded-full neu-inset flex flex-col items-center justify-center my-3 border border-white/20">
-                      <span className="text-3xl font-black text-indigo-500">
+                    <span className="text-xs uppercase font-bold text-gray-400 tracking-wider">ผลการเรียนเฉลี่ยสะสม (GPAX)</span>
+                    <div className="w-28 h-28 rounded-full neu-inset flex flex-col items-center justify-center my-3 border border-white/20">
+                      <span className="text-4xl font-black text-indigo-500">
                         {calculatedStats.cumulativeGpa.toFixed(2)}
                       </span>
-                      <span className="text-[9px] text-gray-400">
+                      <span className="text-xs text-gray-400 mt-1">
                         คิดจาก {calculatedStats.totalGpaCredits} นก.
                       </span>
                     </div>
 
-                    <div className="w-full flex justify-around gap-2 text-center text-[10px] my-1">
+                    <div className="w-full flex justify-around gap-2 text-center text-xs my-1">
                       <div>
                         <p className="text-gray-400 leading-none mb-1">เก็บหน่วยกิตได้</p>
-                        <p className="font-extrabold text-emerald-500">{calculatedStats.totalEarnedCredits} นก.</p>
+                        <p className="font-extrabold text-sm text-emerald-500">{calculatedStats.totalEarnedCredits} นก.</p>
                       </div>
                       <div className="border-r border-gray-200 dark:border-gray-800" />
                       <div>
                         <p className="text-gray-400 leading-none mb-1">กำลัง/รอศึกษา</p>
-                        <p className="font-extrabold text-indigo-500">{calculatedStats.totalFutureCredits} นก.</p>
+                        <p className="font-extrabold text-sm text-indigo-500">{calculatedStats.totalFutureCredits} นก.</p>
                       </div>
                     </div>
 
-                    {/* Honors Notification */}
-                    <div className="w-full mt-3 p-3 rounded-lg neu-inset text-left text-[10px] leading-relaxed">
-                      <div className="flex items-center gap-1 text-indigo-500 font-bold mb-1">
-                        <Award className="h-3.5 w-3.5" />
-                        <span>สถานะพยากรณ์ปริญญาเกียรตินิยม</span>
+                    {/* Honors Notification (FIXED: Standard icon layout, removed invalid classes and cleared general sub-guideline) */}
+                    <div className="w-full mt-3 p-3.5 rounded-lg neu-inset text-left text-xs leading-relaxed">
+                      <div className="flex items-center gap-1.5 text-indigo-500 font-bold mb-1.5">
+                        <Award className="h-5 w-5 shrink-0" /> 
+                        <span className="font-extrabold text-sm">สถานะเกียรตินิยม</span>
                       </div>
-                      <p className="font-black text-xs text-indigo-500">{calculatedStats.honorStatus}</p>
+                      <p className="font-black text-sm text-indigo-500">{calculatedStats.honorStatus}</p>
                       {calculatedStats.honorReason.length > 0 ? (
                         <div className="mt-1 text-red-500">
-                          <p className="font-semibold text-[9px] leading-tight">• พ้นเงื่อนไขจากสาเหตุ:</p>
-                          <ul className="list-disc list-inside text-[8px] text-gray-500 pl-1 mt-0.5 space-y-0.5">
+                          <p className="font-semibold text-xs leading-tight">• พ้นเงื่อนไขจากสาเหตุ:</p>
+                          <ul className="list-disc list-inside text-xs text-gray-500 pl-1 mt-0.5 space-y-0.5">
                             {calculatedStats.honorReason.map((r, i) => <li key={i}>{r}</li>)}
                           </ul>
                         </div>
-                      ) : (
-                        <p className="text-emerald-500 text-[8px] mt-0.5">ผ่านเกณฑ์วิชาการ (ไม่มีวิชาลงทะเบียนซ้ำ, เรียนจบใน 4 ปี และไม่มีเกรด F)</p>
-                      )}
+                      ) : null}
                     </div>
                   </div>
 
-                  {/* Progress bars */}
+                  {}
                   <div className="neu-flat p-4 space-y-3">
-                    <h3 className="text-xs font-black text-indigo-500">ความก้าวหน้าหน่วยกิตหลักสูตร</h3>
-                    <div className="space-y-2 text-[10px]">
+                    <h3 className="text-sm font-black text-indigo-500">ความก้าวหน้าหน่วยกิตหลักสูตร</h3>
+                    <div className="space-y-3.5 text-xs">
                       <div>
-                        <div className="flex justify-between font-bold mb-0.5">
+                        <div className="flex justify-between font-bold mb-1">
                           <span>1. ศึกษาทั่วไป (GE)</span>
                           <span className="text-indigo-500">{geTotalRegistered} / 33 นก.</span>
                         </div>
-                        <div className="h-2 rounded-full neu-inset overflow-hidden">
+                        <div className="h-2.5 rounded-full neu-inset overflow-hidden">
                           <div 
                             className="h-full rounded-full transition-all duration-300"
                             style={{ 
@@ -815,11 +817,11 @@
                       </div>
 
                       <div>
-                        <div className="flex justify-between font-bold mb-0.5">
+                        <div className="flex justify-between font-bold mb-1">
                           <span>2. กลุ่มวิชาแกน (Core)</span>
                           <span className="text-indigo-500">{calculatedStats.catCredits.core} / 27 นก.</span>
                         </div>
-                        <div className="h-2 rounded-full neu-inset overflow-hidden">
+                        <div className="h-2.5 rounded-full neu-inset overflow-hidden">
                           <div 
                             className="h-full rounded-full transition-all duration-300"
                             style={{ 
@@ -831,13 +833,13 @@
                       </div>
 
                       <div>
-                        <div className="flex justify-between font-bold mb-0.5">
+                        <div className="flex justify-between font-bold mb-1">
                           <span>3. กลุ่มวิชาเฉพาะ (67 นก.)</span>
                           <span className="text-indigo-500">
                             {calculatedStats.catCredits.major_req + calculatedStats.catCredits.major_elec} / 67 นก.
                           </span>
                         </div>
-                        <div className="h-2 rounded-full neu-inset overflow-hidden">
+                        <div className="h-2.5 rounded-full neu-inset overflow-hidden">
                           <div 
                             className="h-full rounded-full transition-all duration-300"
                             style={{ 
@@ -849,11 +851,11 @@
                       </div>
 
                       <div>
-                        <div className="flex justify-between font-bold mb-0.5">
+                        <div className="flex justify-between font-bold mb-1">
                           <span>4. เลือกเสรี</span>
                           <span className="text-indigo-500">{calculatedStats.catCredits.free} / 6 นก.</span>
                         </div>
-                        <div className="h-2 rounded-full neu-inset overflow-hidden">
+                        <div className="h-2.5 rounded-full neu-inset overflow-hidden">
                           <div 
                             className="h-full rounded-full transition-all duration-300"
                             style={{ 
@@ -866,12 +868,12 @@
                     </div>
                   </div>
 
-                  {/* Chart */}
+                  {}
                   <div className="neu-flat p-4">
-                    <h3 className="text-xs font-black text-indigo-500 mb-2">แนวโน้มผลการเรียนรายภาค</h3>
+                    <h3 className="text-sm font-black text-indigo-500 mb-2">แนวโน้มผลการเรียนรายภาค</h3>
                     {semesterGpaHistory.length > 1 ? (
-                      <div className="mt-2.5">
-                        <svg className="w-full h-24" viewBox="0 0 300 100">
+                      <div className="mt-3">
+                        <svg className="w-full h-28" viewBox="0 0 300 100">
                           <line x1="0" y1="20" x2="300" y2="20" stroke={isDarkMode ? "#334155" : "#cbd5e1"} strokeWidth="0.5" strokeDasharray="3" />
                           <line x1="0" y1="50" x2="300" y2="50" stroke={isDarkMode ? "#334155" : "#cbd5e1"} strokeWidth="0.5" strokeDasharray="3" />
                           <line x1="0" y1="80" x2="300" y2="80" stroke={isDarkMode ? "#334155" : "#cbd5e1"} strokeWidth="0.5" strokeDasharray="3" />
@@ -894,10 +896,10 @@
                                 {points.map((p, idx) => (
                                   <g key={idx}>
                                     <circle cx={p.x} cy={p.y} r="3.5" fill={theme.primary} stroke={theme.bg} strokeWidth="1.5" />
-                                    <text x={p.x} y={p.y - 8} fontSize="6.5" fontWeight="bold" textAnchor="middle" fill={theme.text}>
+                                    <text x={p.x} y={p.y - 8} fontSize="8" fontWeight="bold" textAnchor="middle" fill={theme.text}>
                                       {p.gpa.toFixed(2)}
                                     </text>
-                                    <text x={p.x} y="96" fontSize="5.5" textAnchor="middle" fill="#94a3b8">
+                                    <text x={p.x} y="96" fontSize="7" textAnchor="middle" fill="#94a3b8">
                                       {p.label}
                                     </text>
                                   </g>
@@ -908,7 +910,7 @@
                         </svg>
                       </div>
                     ) : (
-                      <div className="h-16 flex items-center justify-center text-[10px] text-gray-400 text-center">
+                      <div className="h-20 flex items-center justify-center text-xs text-gray-400 text-center">
                         ต้องระบุเกรดอย่างน้อย 2 เทอมเพื่อเริ่มจุดแนวโน้มการเรียน
                       </div>
                     )}
@@ -922,13 +924,13 @@
                   
                   {/* Year selection */}
                   <div className="neu-flat p-3.5 space-y-2">
-                    <span className="text-[10px] font-bold text-gray-400 block">เลือกชั้นปีเรียน:</span>
-                    <div className="grid grid-cols-4 gap-1.5">
+                    <span className="text-xs font-bold text-gray-400 block">เลือกชั้นปีเรียน:</span>
+                    <div className="grid grid-cols-4 gap-2">
                       {[1, 2, 3, 4].map(y => (
                         <button
                           key={y}
                           onClick={() => setSelectedYear(y)}
-                          className={`py-1.5 text-xs font-black rounded-lg transition-all ${
+                          className={`py-2 text-sm font-black rounded-lg transition-all ${
                             selectedYear === y ? 'neu-btn-active text-indigo-500' : 'neu-btn'
                           }`}
                         >
@@ -938,12 +940,12 @@
                     </div>
                     
                     {/* Semester selection */}
-                    <div className="flex gap-1 pt-2 border-t border-gray-200 dark:border-gray-800">
+                    <div className="flex gap-1.5 pt-2 border-t border-gray-200 dark:border-gray-800">
                       {['1', '2', 'summer'].map(sem => (
                         <button
                           key={sem}
                           onClick={() => setSelectedSemester(sem)}
-                          className={`flex-1 py-1 text-[9px] font-bold ${
+                          className={`flex-1 py-1.5 text-xs font-bold ${
                             selectedSemester === sem ? 'neu-btn-active text-indigo-500' : 'neu-btn'
                           }`}
                         >
@@ -953,11 +955,11 @@
                     </div>
                   </div>
 
-                  {/* COURSE FORM */}
+                  {}
                   {isAddingCourse && (
-                    <div className="neu-flat p-4 space-y-3 border border-indigo-500/10 text-[10px]">
+                    <div className="neu-flat p-4 space-y-3 border border-indigo-500/10 text-xs">
                       <div className="flex justify-between items-center">
-                        <span className="font-black text-indigo-500 text-xs">
+                        <span className="font-black text-indigo-500 text-sm">
                           {editingCourse ? 'แก้ไขรายละเอียดวิชาเรียน' : 'เพิ่มวิชานอกหลักสูตร'}
                         </span>
                         <button onClick={() => { setIsAddingCourse(false); setEditingCourse(null); }} className="text-red-500 font-bold">ปิด</button>
@@ -972,7 +974,7 @@
                             placeholder="เช่น 321-3301"
                             value={inputCode}
                             onChange={e => setInputCode(e.target.value)}
-                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
+                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-sm text-slate-900 dark:text-white"
                           />
                         </div>
                         <div>
@@ -983,7 +985,7 @@
                             placeholder="เช่น ออกแบบบริการ"
                             value={inputName}
                             onChange={e => setInputName(e.target.value)}
-                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
+                            className="w-full px-2.5 py-1.5 rounded-lg neu-inset outline-none text-sm text-slate-900 dark:text-white"
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-2">
@@ -992,7 +994,7 @@
                             <select
                               value={inputCredits}
                               onChange={e => setInputCredits(Number(e.target.value))}
-                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
+                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-sm text-slate-900 dark:text-white"
                             >
                               {[0, 1, 2, 3, 4, 5, 6].map(num => <option key={num} value={num}>{num} นก.</option>)}
                             </select>
@@ -1002,7 +1004,7 @@
                             <select
                               value={inputGrade}
                               onChange={e => setInputGrade(e.target.value)}
-                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
+                              className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-sm text-slate-900 dark:text-white"
                             >
                               <option value="-">- ยังไม่เรียน</option>
                               <option value="IP">IP กำลังเรียน</option>
@@ -1025,7 +1027,7 @@
                           <select
                             value={inputCategory}
                             onChange={e => setInputCategory(e.target.value)}
-                            className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-xs text-slate-900 dark:text-white"
+                            className="w-full px-2 py-1.5 rounded-lg neu-inset outline-none text-sm text-slate-900 dark:text-white"
                           >
                             <option value="ge_so">สังคมศาสตร์ (GE)</option>
                             <option value="ge_hu">มนุษยศาสตร์ (GE)</option>
@@ -1041,17 +1043,17 @@
 
                       <button 
                         onClick={handleAddOrEditCourse}
-                        className="w-full py-2 bg-indigo-500 text-white rounded-lg font-bold"
+                        className="w-full py-2 bg-indigo-500 text-white rounded-lg font-bold text-sm"
                       >
                         {editingCourse ? 'บันทึกแก้ไขวิชา' : 'เพิ่มวิชาเรียน'}
                       </button>
                     </div>
                   )}
 
-                  {/* COURSE LIST */}
+                  {}
                   <div className="neu-flat p-4 space-y-3">
                     <div className="flex justify-between items-center">
-                      <h3 className="text-xs font-black text-gray-400">
+                      <h3 className="text-sm font-black text-gray-400">
                         แผนเทอม ปี {selectedYear} / เทอม {selectedSemester === 'summer' ? 'ฤดูร้อน' : selectedSemester}
                       </h3>
                       <button 
@@ -1066,7 +1068,7 @@
                           setInputSemester(selectedSemester);
                           setIsAddingCourse(true);
                         }}
-                        className="text-[9px] font-black text-indigo-500 neu-btn px-2 py-1"
+                        className="text-xs font-black text-indigo-500 neu-btn px-2.5 py-1.5"
                       >
                         + เพิ่มวิชาอิสระ
                       </button>
@@ -1076,24 +1078,29 @@
                       const filtered = courses.filter(c => c.year === selectedYear && c.semester === selectedSemester);
                       if (filtered.length === 0) {
                         return (
-                          <div className="neu-inset p-6 text-center text-xs text-gray-400">
+                          <div className="neu-inset p-8 text-center text-sm text-gray-400">
                             ไม่พบบันทึกวิชาในภาคเรียนนี้
                           </div>
                         );
                       }
                       return (
-                        <div className="space-y-3.5">
+                        <div className="space-y-4">
                           {filtered.map(c => (
-                            <div key={c.id} className="p-3 rounded-xl neu-inset flex items-center justify-between gap-2.5 text-[10px]">
+                            <div key={c.id} className="p-3.5 rounded-xl neu-inset flex items-center justify-between gap-3 text-xs">
                               <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-1.5 mb-1">
-                                  <span className="font-extrabold text-indigo-500 text-xs shrink-0">{c.code}</span>
-                                  <span className="px-1.5 py-0.2 bg-black/5 dark:bg-white/5 rounded text-[8px] text-gray-500">
+                                <div className="flex items-center gap-2 mb-1.5">
+                                  <span className="font-extrabold text-indigo-500 text-sm shrink-0">{c.code}</span>
+                                  <span className="px-2 py-0.5 bg-black/5 dark:bg-white/5 rounded text-xs text-gray-500">
                                     {c.credits} นก.
                                   </span>
                                 </div>
-                                <p className="font-extrabold text-slate-950 dark:text-white truncate leading-tight mb-1 text-[11px]">{c.name}</p>
-                                <span className="text-[8px] text-gray-500 dark:text-gray-400">
+                                <p 
+                                  className="font-extrabold truncate leading-snug mb-1 text-sm sm:text-base"
+                                  style={{ color: isDarkMode ? '#ffffff' : '#0f172a' }}
+                                >
+                                  {c.name}
+                                </p>
+                                <span className="text-[10px] text-gray-500 dark:text-gray-400">
                                   {
                                     c.category === 'ge_so' ? '1.1 สังคมศาสตร์' :
                                     c.category === 'ge_hu' ? '1.2 มนุษยศาสตร์' :
@@ -1106,11 +1113,11 @@
                                 </span>
                               </div>
 
-                              <div className="flex items-center gap-2">
+                              <div className="flex items-center gap-2.5">
                                 <select
                                   value={c.grade}
                                   onChange={e => handleQuickGradeChange(c.id, e.target.value)}
-                                  className={`font-bold py-1 px-1.5 rounded-md text-[10px] outline-none cursor-pointer transition-all ${
+                                  className={`font-black py-1.5 px-2 rounded-md text-xs outline-none cursor-pointer transition-all ${
                                     c.grade === 'A' ? 'bg-emerald-100 dark:bg-emerald-950/30 text-emerald-600' :
                                     c.grade === '-' ? 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400' :
                                     c.grade === 'IP' ? 'bg-amber-100 dark:bg-amber-950/30 text-amber-500' :
@@ -1133,12 +1140,12 @@
                                   <option value="W">W</option>
                                 </select>
 
-                                <div className="flex flex-col gap-1">
+                                <div className="flex flex-col gap-1.5">
                                   <button onClick={() => startEdit(c)} className="p-1 text-gray-400 hover:text-indigo-500">
-                                    <Edit3 className="h-3 w-3" />
+                                    <Edit3 className="h-4 w-4 shrink-0" />
                                   </button>
                                   <button onClick={() => deleteCourse(c.id)} className="p-1 text-gray-400 hover:text-red-500">
-                                    <Trash2 className="h-3 w-3" />
+                                    <Trash2 className="h-4 w-4 shrink-0" />
                                   </button>
                                 </div>
                               </div>
@@ -1157,12 +1164,12 @@
                   
                   {/* Goal Setting */}
                   <div className="neu-flat p-5 space-y-4">
-                    <h3 className="text-sm font-black text-indigo-500 flex items-center gap-1.5">
-                      <Sparkles className="h-4 w-4" />
+                    <h3 className="text-base font-black text-indigo-500 flex items-center gap-1.5">
+                      <Sparkles className="h-5 w-5 shrink-0" />
                       เครื่องมือคำนวณเป้าหมายผลการเรียน
                     </h3>
                     
-                    <div className="space-y-3.5 text-xs">
+                    <div className="space-y-4 text-sm">
                       <div>
                         <label className="text-gray-400 block mb-1">ระบุเกรดเฉลี่ยสะสม (GPAX) ที่หวัง:</label>
                         <div className="flex gap-2">
@@ -1173,17 +1180,17 @@
                             max="4.00"
                             value={targetGpaInput}
                             onChange={e => setTargetGpaInput(e.target.value)}
-                            className="flex-1 px-3 py-2 neu-inset outline-none font-black text-center text-indigo-500 rounded-lg text-sm"
+                            className="flex-1 px-3 py-2.5 neu-inset outline-none font-black text-center text-indigo-500 rounded-lg text-base"
                           />
                           <div className="flex flex-col gap-1">
-                            <button onClick={() => setTargetGpaInput('3.75')} className="neu-btn px-2 py-0.5 text-[8px] font-bold">เกียรตินิยมอันดับ 1</button>
-                            <button onClick={() => setTargetGpaInput('3.25')} className="neu-btn px-2 py-0.5 text-[8px] font-bold">เกียรตินิยมอันดับ 2</button>
+                            <button onClick={() => setTargetGpaInput('3.75')} className="neu-btn px-2 py-1 text-[10px] font-bold">เกียรตินิยม 1</button>
+                            <button onClick={() => setTargetGpaInput('3.25')} className="neu-btn px-2 py-1 text-[10px] font-bold">เกียรตินิยม 2</button>
                           </div>
                         </div>
                       </div>
 
                       <div className="p-4 rounded-xl neu-inset space-y-3.5">
-                        <div className="flex justify-between items-center text-[11px]">
+                        <div className="flex justify-between items-center text-xs sm:text-sm">
                           <span>หน่วยกิตที่ต้องเรียนเพิ่มเติม:</span>
                           <span className="font-extrabold text-indigo-500">{targetGpaCalculation.remainingCredits} หน่วยกิต</span>
                         </div>
@@ -1191,12 +1198,12 @@
                         {targetGpaCalculation.isPossible ? (
                           <div className="space-y-2.5">
                             <div className="flex justify-between items-center">
-                              <span>เกรดเฉลี่ยขั้นต่ำที่ต้องทำในวิชาที่เหลือ:</span>
-                              <span className="text-xl font-black text-emerald-500">
+                              <span>เกรดเฉลี่ยขั้นต่ำที่ต้องทำให้ได้:</span>
+                              <span className="text-2xl font-black text-emerald-500">
                                 {targetGpaCalculation.requiredAverage <= 0 ? 'สำเร็จแล้ว' : targetGpaCalculation.requiredAverage.toFixed(2)}
                               </span>
                             </div>
-                            <p className="text-[9px] text-gray-500 leading-normal">
+                            <p className="text-[11px] text-gray-500 leading-normal">
                               * นิสิตจะต้องได้ผลการเรียนเฉลี่ยประมาณวิชาละ {
                                 targetGpaCalculation.requiredAverage <= 2.0 ? 'C' :
                                 targetGpaCalculation.requiredAverage <= 2.5 ? 'C+' :
@@ -1207,8 +1214,8 @@
                           </div>
                         ) : (
                           <div className="text-red-500 space-y-1">
-                            <p className="font-black text-xs">❌ เป็นไปไม่ได้ในทางสถิติ</p>
-                            <p className="text-[9px] leading-relaxed">
+                            <p className="font-black text-sm">❌ เป็นไปไม่ได้ในทางสถิติ</p>
+                            <p className="text-xs leading-relaxed">
                               คะแนนรวมปัจจุบันของนิสิตไม่เพียงพอที่จะผลักดันผลเฉลี่ยให้สูงถึงเป้าหมาย {targetGpaCalculation.target.toFixed(2)} ถึงแม้จะได้เกรด A ในวิชาที่เหลือทั้งหมดก็ตาม
                             </p>
                           </div>
@@ -1218,39 +1225,39 @@
                   </div>
 
                   {/* Checklist */}
-                  <div className="neu-flat p-4 space-y-3 text-xs">
-                    <h3 className="font-black text-indigo-500 flex items-center gap-1">
-                      <CheckCircle className="h-4 w-4" />
+                  <div className="neu-flat p-4 space-y-3 text-sm">
+                    <h3 className="font-black text-indigo-500 flex items-center gap-1.5">
+                      <CheckCircle className="h-5 w-5 shrink-0" />
                       เช็คลิสต์หน่วยกิตหลักสูตร
                     </h3>
                     
-                    <div className="space-y-2.5">
-                      <div className="flex items-center gap-2">
-                        <div className={`p-0.5 rounded-full shrink-0 ${geTotalRegistered >= 33 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
-                          <Check className="h-3 w-3" />
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-2.5">
+                        <div className={`p-1 rounded-full shrink-0 ${geTotalRegistered >= 33 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
+                          <Check className="h-3.5 w-3.5 shrink-0" />
                         </div>
-                        <span className="text-[10px]">ศึกษาทั่วไป (GE): {geTotalRegistered} / 33 นก.</span>
+                        <span className="text-xs sm:text-sm">ศึกษาทั่วไป (GE): {geTotalRegistered} / 33 นก.</span>
                       </div>
                       
-                      <div className="flex items-center gap-2">
-                        <div className={`p-0.5 rounded-full shrink-0 ${calculatedStats.catCredits.core >= 27 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
-                          <Check className="h-3 w-3" />
+                      <div className="flex items-center gap-2.5">
+                        <div className={`p-1 rounded-full shrink-0 ${calculatedStats.catCredits.core >= 27 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
+                          <Check className="h-3.5 w-3.5 shrink-0" />
                         </div>
-                        <span className="text-[10px]">กลุ่มวิชาแกนหลัก: {calculatedStats.catCredits.core} / 27 นก.</span>
+                        <span className="text-xs sm:text-sm">กลุ่มวิชาแกนหลัก: {calculatedStats.catCredits.core} / 27 นก.</span>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <div className={`p-0.5 rounded-full shrink-0 ${(calculatedStats.catCredits.major_req + calculatedStats.catCredits.major_elec) >= 67 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
-                          <Check className="h-3 w-3" />
+                      <div className="flex items-center gap-2.5">
+                        <div className={`p-1 rounded-full shrink-0 ${(calculatedStats.catCredits.major_req + calculatedStats.catCredits.major_elec) >= 67 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
+                          <Check className="h-3.5 w-3.5 shrink-0" />
                         </div>
-                        <span className="text-[10px]">กลุ่มวิชาเฉพาะ: {calculatedStats.catCredits.major_req + calculatedStats.catCredits.major_elec} / 67 นก.</span>
+                        <span className="text-xs sm:text-sm">กลุ่มวิชาเฉพาะ: {calculatedStats.catCredits.major_req + calculatedStats.catCredits.major_elec} / 67 นก.</span>
                       </div>
 
-                      <div className="flex items-center gap-2">
-                        <div className={`p-0.5 rounded-full shrink-0 ${calculatedStats.catCredits.free >= 6 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
-                          <Check className="h-3 w-3" />
+                      <div className="flex items-center gap-2.5">
+                        <div className={`p-1 rounded-full shrink-0 ${calculatedStats.catCredits.free >= 6 ? 'bg-emerald-500 text-white' : 'bg-gray-300'}`}>
+                          <Check className="h-3.5 w-3.5 shrink-0" />
                         </div>
-                        <span className="text-[10px]">กลุ่มวิชาเลือกเสรี: {calculatedStats.catCredits.free} / 6 นก.</span>
+                        <span className="text-xs sm:text-sm">กลุ่มวิชาเลือกเสรี: {calculatedStats.catCredits.free} / 6 นก.</span>
                       </div>
                     </div>
                   </div>
@@ -1258,18 +1265,19 @@
                 </div>
               )}
 
+              {}
               {activeTab === 'guide' && (
-                <div className="space-y-4 animate-fade-in text-xs leading-relaxed">
+                <div className="space-y-4 animate-fade-in text-sm leading-relaxed">
                   
                   {/* CDTI Rules */}
                   <div className="neu-flat p-5 space-y-3">
-                    <h3 className="font-black text-indigo-500 flex items-center gap-1 text-sm">
-                      <Info className="h-4 w-4" />
+                    <h3 className="font-black text-indigo-500 flex items-center gap-1.5 text-base">
+                      <Info className="h-5 w-5 shrink-0" />
                       กฎระเบียบสถาบัน CDTI
                     </h3>
-                    <div className="space-y-2.5 text-[10px] text-gray-500 dark:text-gray-400">
+                    <div className="space-y-2.5 text-xs text-gray-500 dark:text-gray-400">
                       <p>
-                        หลักสูตรเทคโนโลยีบัณฑิต (การออกแบบและเทคโนโลยีดิจิทัล) สถาบันเทคโนโลยีจิตรลดา มุ่งเน้นการคำนวณและประเมินผลสัมฤทธิ์อย่างเข้มงวด:
+                        หลักสูตรศิลปศาสตรบัณฑิต (การออกแบบและเทคโนโลยีดิจิทัล) สถาบันเทคโนโลยีจิตรลดา มุ่งเน้นการคำนวณและประเมินผลสัมฤทธิ์อย่างเข้มงวด:
                       </p>
                       <ul className="list-disc pl-4 space-y-1">
                         <li><strong>รวมหน่วยกิต:</strong> ทั้งหมดไม่ต่ำกว่า 133 หน่วยกิต</li>
@@ -1279,28 +1287,28 @@
                     </div>
                   </div>
 
-                  {/* Profile Management Section (Now fully editable with custom fields) */}
+                  {/* Profile Management Section */}
                   <div className="neu-flat p-4 space-y-3">
-                    <h4 className="font-bold text-indigo-500 text-xs">ข้อมูลผู้ใช้งาน (แก้ไขข้อมูลส่วนตัวได้จริง)</h4>
+                    <h4 className="font-bold text-indigo-500 text-sm">ข้อมูลผู้ใช้งาน (แก้ไขข้อมูลส่วนตัวได้จริง)</h4>
                     
                     {isEditingProfile ? (
                       <form onSubmit={handleSaveProfile} className="space-y-3.5 p-3.5 rounded-lg neu-inset">
                         <div>
-                          <label className="text-gray-500 block mb-1 font-bold text-[9px] uppercase">ชื่อ-นามสกุล</label>
+                          <label className="text-gray-500 block mb-1 font-bold text-xs uppercase">ชื่อ-นามสกุล</label>
                           <input 
                             type="text" 
                             required 
-                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-xs border border-slate-200 dark:border-slate-700 font-medium"
+                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-sm border border-slate-200 dark:border-slate-700 font-medium"
                             value={editName}
                             onChange={e => setEditName(e.target.value)}
                           />
                         </div>
                         <div>
-                          <label className="text-gray-500 block mb-1 font-bold text-[9px] uppercase">อีเมลสถาบัน</label>
+                          <label className="text-gray-500 block mb-1 font-bold text-xs uppercase">อีเมลสถาบัน</label>
                           <input 
                             type="email" 
                             required 
-                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-xs border border-slate-200 dark:border-slate-700 font-medium"
+                            className="w-full px-2.5 py-1.5 rounded-md bg-white dark:bg-slate-800 text-slate-800 dark:text-white outline-none text-sm border border-slate-200 dark:border-slate-700 font-medium"
                             value={editEmail}
                             onChange={e => setEditEmail(e.target.value)}
                           />
@@ -1308,7 +1316,7 @@
                         <div className="flex gap-2 pt-1">
                           <button 
                             type="submit" 
-                            className="flex-1 py-1 px-2.5 bg-indigo-500 text-white rounded-md font-bold text-[10px]"
+                            className="flex-1 py-1.5 px-3 bg-indigo-500 text-white rounded-md font-bold text-xs"
                           >
                             บันทึกข้อมูล
                           </button>
@@ -1321,19 +1329,19 @@
                               }
                               setIsEditingProfile(false);
                             }}
-                            className="py-1 px-3 bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-md text-[10px]"
+                            className="py-1.5 px-3 bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-md text-xs"
                           >
                             ยกเลิก
                           </button>
                         </div>
                       </form>
                     ) : (
-                      <div className="p-3 rounded-lg neu-inset text-[10px] space-y-2">
+                      <div className="p-3.5 rounded-lg neu-inset text-xs sm:text-sm space-y-2">
                         <p><strong>ชื่อ-นามสกุล:</strong> {user ? user.name : 'นิสิตจำลอง CDTI'}</p>
                         <p><strong>อีเมลสถาบัน:</strong> {user ? user.email : 'student@cdti.ac.th'}</p>
                         <button 
                           onClick={() => setIsEditingProfile(true)}
-                          className="mt-1 py-1 px-3 text-[9px] font-bold text-indigo-500 bg-indigo-50/10 hover:bg-indigo-50/20 border border-indigo-500/10 rounded-md transition-all"
+                          className="mt-1 py-1.5 px-3.5 text-xs font-bold text-indigo-500 bg-indigo-50/10 hover:bg-indigo-50/20 border border-indigo-500/10 rounded-md transition-all"
                         >
                           แก้ไขข้อมูลส่วนตัว
                         </button>
@@ -1343,14 +1351,14 @@
                     {user ? (
                       <button 
                         onClick={handleLogout}
-                        className="w-full py-1.5 text-red-500 font-bold neu-btn text-[10px]"
+                        className="w-full py-2 text-red-500 font-bold neu-btn text-xs"
                       >
                         ออกจากระบบ
                       </button>
                     ) : (
                       <button 
                         onClick={() => setIsAuthModalOpen(true)}
-                        className="w-full py-1.5 text-indigo-500 font-bold neu-btn text-[10px]"
+                        className="w-full py-2 text-indigo-500 font-bold neu-btn text-xs"
                       >
                         เชื่อมต่อระบบคลาวด์ CDTI
                       </button>
@@ -1362,46 +1370,46 @@
 
             </div>
 
-            {/* --- IOS TAB NAVIGATION BAR (Icons optimized to standard Tailwind w-5 h-5 sizes) --- */}
+            {/* --- IOS TAB NAVIGATION BAR (Icons properly sized using standard class) --- */}
             <nav className="absolute bottom-0 left-0 right-0 h-16 bg-[var(--bg)] border-t border-gray-200 dark:border-gray-800 flex items-center justify-around px-2 z-40 pb-2">
               <button 
                 onClick={() => setActiveTab('dashboard')}
-                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${
                   activeTab === 'dashboard' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Award className="w-5 h-5" />
-                <span className="text-[9px]">ผลสัมฤทธิ์</span>
+                <Award className="w-5 h-5 shrink-0" />
+                <span className="text-[11px] sm:text-xs">ผลสัมฤทธิ์</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('courses')}
-                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${
                   activeTab === 'courses' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <FolderOpen className="w-5 h-5" />
-                <span className="text-[9px]">รายวิชา</span>
+                <FolderOpen className="w-5 h-5 shrink-0" />
+                <span className="text-[11px] sm:text-xs">รายวิชา</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('planner')}
-                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${
                   activeTab === 'planner' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Sparkles className="w-5 h-5" />
-                <span className="text-[9px]">วางแผน</span>
+                <Sparkles className="w-5 h-5 shrink-0" />
+                <span className="text-[11px] sm:text-xs">วางแผน</span>
               </button>
 
               <button 
                 onClick={() => setActiveTab('guide')}
-                className={`flex flex-col items-center gap-1 flex-1 transition-all ${
+                className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${
                   activeTab === 'guide' ? 'text-indigo-500 scale-105 font-bold' : 'text-gray-400'
                 }`}
               >
-                <Sliders className="w-5 h-5" />
-                <span className="text-[9px]">ผู้ใช้/คู่มือ</span>
+                <Sliders className="w-5 h-5 shrink-0" />
+                <span className="text-[11px] sm:text-xs">ผู้ใช้/คู่มือ</span>
               </button>
             </nav>
 
